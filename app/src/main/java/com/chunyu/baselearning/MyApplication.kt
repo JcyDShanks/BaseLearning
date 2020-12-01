@@ -1,12 +1,11 @@
 package com.chunyu.baselearning
 
 import android.app.Application
-import xiaofei.library.hermeseventbus.HermesEventBus
+import com.chunyu.baselearning.android.SharedPrefManager
 
 class MyApplication: Application() {
     override fun onCreate() {
         super.onCreate()
-        HermesEventBus.getDefault().init(this)
-//        HermesEventBus.getDefault().connectApp()
+        SharedPrefManager.init(this)
     }
 }
