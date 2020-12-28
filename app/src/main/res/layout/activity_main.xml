@@ -5,15 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="5dp"
+            android:background="#666666"
+            android:gravity="center"
             android:text="Hello World!"
+            android:textColor="#FFFFFF"
+            android:textSize="22dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -21,9 +30,15 @@
 
         <Button
             android:id="@+id/button"
-            android:text="跳转页面"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="HermesEventBus测试" />
+
+        <Button
+            android:id="@+id/syncBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="synchronized测试" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
