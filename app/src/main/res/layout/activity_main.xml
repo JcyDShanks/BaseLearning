@@ -39,6 +39,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="synchronized测试" />
+
+        <Button
+            android:id="@+id/handlerBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Handler测试" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
