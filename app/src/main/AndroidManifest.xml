@@ -20,7 +20,7 @@
         <activity android:name=".android.jobscheduler.NotificationJobActivity" />
         <activity android:name=".android.sharedpref.NewSharedPrefActivity" />
         <activity android:name=".android.sharedpref.SharedPrefLearnningActivity" />
-        <activity android:name=".NextActivity" />
+        <activity android:name=".android.NextActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

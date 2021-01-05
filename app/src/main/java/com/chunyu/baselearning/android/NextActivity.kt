@@ -1,10 +1,11 @@
-package com.chunyu.baselearning
+package com.chunyu.baselearning.android
 
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
+import com.chunyu.baselearning.NextMessage
+import com.chunyu.baselearning.R
 import kotlinx.android.synthetic.main.activity_next.*
 import xiaofei.library.hermeseventbus.HermesEventBus
 
