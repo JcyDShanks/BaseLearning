@@ -17,6 +17,8 @@ public class SyncTest {
         }
     }
 
+
+
     public void test() {
         Log.d("SYNC start", Thread.currentThread().getName());
         Log.d("SYNC end", Thread.currentThread().getName());

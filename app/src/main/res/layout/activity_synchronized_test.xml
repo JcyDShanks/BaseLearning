@@ -7,17 +7,24 @@
     android:orientation="vertical"
     android:background="#333333"
     tools:context=".java.SynchronizedTestActivity">
-<!--    <TextView-->
-<!--        android:id="@+id/logTv"-->
-<!--        android:padding="10dp"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_weight="1"-->
-<!--        android:layout_height="wrap_content"/>-->
     <Button
-        android:id="@+id/openThreadCallMethodBtn"
-        android:layout_marginBottom="20dp"
-        android:text="启动5个线程执行同一个任务"
+        android:id="@+id/noLockBtn"
+        android:text="no lock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
+    <Button
+        android:id="@+id/lockThisBtn"
+        android:text="lock this"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/lockObjectBtn"
+        android:text="lock Object"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/lockClassBtn"
+        android:text="lock Class"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>
