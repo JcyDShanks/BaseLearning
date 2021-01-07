@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.chunyu.baselearning.android.HandlerActivity
 import com.chunyu.baselearning.android.NextActivity
+import com.chunyu.baselearning.android.binder.MyClientActivity
 import com.chunyu.baselearning.java.SynchronizedTestActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.greenrobot.eventbus.Subscribe
@@ -36,6 +37,10 @@ class MainActivity : AppCompatActivity() {
         }
         handlerBtn.setOnClickListener {
             HandlerActivity.start(this)
+        }
+        binderTestBtn.setOnClickListener {
+            val intent = Intent(this, MyClientActivity::class.java)
+            startActivity(intent)
         }
     }
 
