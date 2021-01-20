@@ -1,5 +1,6 @@
 package com.chunyu.baselearning.android
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -30,18 +31,21 @@ class HandlerActivity : AppCompatActivity() {
     //  主线程
     private var handler: Handler? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_handler)
-        handler = Handler { message ->
-            when(message.what) {
+    private var sHandler = SHandler()
+
+    /* 该处理程序类应为静态，否则可能发生泄漏 */
+    @SuppressLint("HandlerLeak")
+    inner class SHandler: Handler() {
+        override fun handleMessage(msg: Message) {
+            when(msg.what) {
                 ReceiverMessage -> {
-                    val result = message.obj as String
+                    val result = msg.obj as String
                     logTv.text = result
+
                     true
                 }
                 FromGradson -> {
-                    val result = message.obj as String
+                    val result = msg.obj as String
                     logTv.text = "From" + result
                     true
                 }
@@ -50,6 +54,28 @@ class HandlerActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_handler)
+//        handler = Handler { message ->
+//            when(message.what) {
+//                ReceiverMessage -> {
+//                    val result = message.obj as String
+//                    logTv.text = result
+//                    true
+//                }
+//                FromGradson -> {
+//                    val result = message.obj as String
+//                    logTv.text = "From" + result
+//                    true
+//                }
+//                else -> {
+//                    false
+//                }
+//            }
+//        }
         initAction()
     }
 
@@ -62,12 +88,11 @@ class HandlerActivity : AppCompatActivity() {
                     what = ReceiverMessage
                     this.obj = text
                 }
-                handler?.sendMessageDelayed(message, 1000)
+                sHandler.sendMessageDelayed(message, 20000)
+//                handler?.sendMessage(message)
                 // 子线程中使用handler需要先创建looper
                 Looper.prepare()
-                if (Looper.getMainLooper() == Looper.myLooper()) {
-                    Log.e("Loop", "current is main Looper")
-                }
+                Looper.loop()
                 val subThreadHandler = Handler {
                     when(it.what) {
                         ReceiverMessage -> {
@@ -76,20 +101,22 @@ class HandlerActivity : AppCompatActivity() {
                                 this.obj = "孙子线程: ${it.obj as String}"
                             }
                             Log.e("Loop", "孙子线程: ${it.obj as String}")
-                            handler?.sendMessage(msg)
+                            handler?.sendMessage(message)
                             false
                         }
                         else -> false
                     }
                 }
                 thread {
-                    subThreadHandler.sendMessage(Message().apply {
+                    Log.e("HAN", "孙子线程开始执行")
+                    val message = Message().apply {
                         what = ReceiverMessage
                         obj = Thread.currentThread().name
-                    })
+                    }
+                    subThreadHandler.sendMessage(message)
                 }
                 // handler创建完再开启消息轮询，否则收不到消息
-                Looper.loop()
+//                Looper.loop()
             }
         }
     }

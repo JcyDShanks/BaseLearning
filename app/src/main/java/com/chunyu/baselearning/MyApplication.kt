@@ -8,4 +8,5 @@ class MyApplication: Application() {
         super.onCreate()
         SharedPrefManager.init(this)
     }
+
 }
