@@ -8,5 +8,10 @@ public class FinalCheck {
         FinalCheck finalcheck =  new FinalCheck();
         System.out.println(FinalCheck.s1);
         System.out.println(finalcheck.s2);
+        int[] array = new int[10];
+        for (int i = 1; i < array.length; i++) {
+
+        }
     }
+
 }
