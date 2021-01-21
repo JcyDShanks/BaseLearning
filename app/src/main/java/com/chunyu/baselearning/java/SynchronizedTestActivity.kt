@@ -2,6 +2,7 @@ package com.chunyu.baselearning.java
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Message
 import android.util.Log
 import com.chunyu.baselearning.R
 import kotlinx.android.synthetic.main.activity_synchronized_test.*
@@ -21,6 +22,7 @@ class SynchronizedTestActivity : AppCompatActivity() {
             }
             thread.start()
         }
+        Message.obtain()
     }
 
     private fun initView() {

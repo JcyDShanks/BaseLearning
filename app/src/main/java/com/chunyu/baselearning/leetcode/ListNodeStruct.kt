@@ -1,4 +1,4 @@
-package com.chunyu.baselearning.leetcide
+package com.chunyu.baselearning.leetcode
 
 class ListNode(var `val`: Int) {
     var next: ListNode? = null
