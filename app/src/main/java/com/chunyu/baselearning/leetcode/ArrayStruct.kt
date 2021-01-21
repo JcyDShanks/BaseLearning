@@ -1,6 +1,4 @@
-package com.chunyu.baselearning.leetcide
-
-import kotlin.math.max
+package com.chunyu.baselearning.leetcode
 
 // 27
 class RemoveObject {

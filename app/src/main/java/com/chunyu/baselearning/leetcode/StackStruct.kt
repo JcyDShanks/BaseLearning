@@ -1,4 +1,4 @@
-package com.chunyu.baselearning.leetcide
+package com.chunyu.baselearning.leetcode
 
 import java.util.*
 
