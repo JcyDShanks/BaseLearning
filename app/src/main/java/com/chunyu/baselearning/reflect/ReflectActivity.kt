@@ -1,8 +1,7 @@
-package com.chunyu.baselearning.reflact
+package com.chunyu.baselearning.reflect
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.view.View.OnClickListener
 import com.chunyu.baselearning.R
 import java.lang.reflect.Proxy

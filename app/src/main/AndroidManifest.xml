@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".reflact.ReflectActivity"></activity>
+        <activity android:name=".android.CoordinatorActivity"></activity>
+        <activity android:name=".reflect.ReflectActivity" />
         <activity android:name=".android.binder.MyClientActivity" />
 
         <service

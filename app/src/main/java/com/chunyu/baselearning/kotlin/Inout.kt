@@ -1,9 +1,5 @@
 package com.chunyu.baselearning.kotlin
 
-class Inout {
-
-}
-
 /*
 * 生产类
 * out 父类泛型对象 不能当成 子类泛型对象使用
@@ -20,7 +16,6 @@ interface Production<out T> {
 interface Customer<in T> {
     fun consume(item: T)
 }
-
 
 /*
 * 不加in out， 既可以作为返回值类型，也可以作为参数类型
@@ -47,7 +42,6 @@ class FastFoodStore : Production<FastFood> {
         return FastFood()
     }
 }
-
 
 class InOutBurgerStore: Production<Hamburger> {
     override fun produce(): Hamburger {

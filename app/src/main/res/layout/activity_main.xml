@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -30,24 +31,36 @@
 
         <Button
             android:id="@+id/button"
+            android:textColor="@color/write"
+            android:background="@drawable/background_common_button"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="HermesEventBus测试" />
 
         <Button
             android:id="@+id/syncBtn"
+            android:textColor="@color/write"
+            android:background="@drawable/background_common_button"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="synchronized测试" />
 
         <Button
             android:id="@+id/handlerBtn"
+            android:textColor="@color/write"
+            android:background="@drawable/background_common_button"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Handler测试" />
 
         <Button
             android:id="@+id/binderTestBtn"
+            android:textColor="@color/write"
+            android:background="@drawable/background_common_button"
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Binder通讯" />

@@ -1,20 +1,12 @@
 package com.chunyu.baselearning.kotlin
 
-
-import io.reactivex.Observable
-import io.reactivex.ObservableOnSubscribe
-import io.reactivex.Observer
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.*
 import java.lang.Thread.currentThread
-import java.util.*
 import java.util.concurrent.CountDownLatch
 import kotlin.concurrent.thread
 
 class CoroutineLearning {
-    fun request(index: Int): String {
+    private fun request(index: Int): String {
         Thread.sleep(2000)
         countDownLatch.countDown()
         return "thread $index:"+ currentThread().name
@@ -22,7 +14,7 @@ class CoroutineLearning {
 
     private var images = arrayListOf<String?>("1", "2", "3", "4", "5")
 
-    val countDownLatch = CountDownLatch(images.size)
+    private val countDownLatch = CountDownLatch(images.size)
 
     // 使用线程
     fun doThreadTask() {
@@ -63,7 +55,7 @@ class CoroutineLearning {
     }
 
     // 使用callback回调
-    fun request(index: Int, callback: ((String) -> Unit)?) {
+    private fun request(index: Int, callback: ((String) -> Unit)?) {
         Thread.sleep(2000)
         callback?.invoke("thread $index:"+ currentThread().name)
     }

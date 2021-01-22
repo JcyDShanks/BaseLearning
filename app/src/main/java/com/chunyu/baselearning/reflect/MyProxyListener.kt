@@ -1,4 +1,4 @@
-package com.chunyu.baselearning.reflact
+package com.chunyu.baselearning.reflect
 
 import android.view.View
 
