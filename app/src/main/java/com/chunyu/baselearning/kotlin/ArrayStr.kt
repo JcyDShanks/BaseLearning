@@ -22,18 +22,7 @@ class ArrayStr {
                 }
             }
         }
-
-        count?.let {
-            check(it)
-        }
-
         return charArray
-    }
-
-    var count: Int? = null
-
-    fun check(num: Int): Int {
-
     }
 
 }
