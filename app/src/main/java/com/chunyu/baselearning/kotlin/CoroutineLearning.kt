@@ -8,7 +8,7 @@ import kotlin.concurrent.thread
 class CoroutineLearning {
     private fun request(index: Int): String {
         Thread.sleep(2000)
-        countDownLatch.countDown()
+//        countDownLatch.countDown()
         return "thread $index:"+ currentThread().name
     }
 
@@ -34,21 +34,21 @@ class CoroutineLearning {
     fun doCoroutineTask() {
         runBlocking {
             val deffer = images.mapIndexed { index, s ->
-                GlobalScope.async {
+                GlobalScope.async(Dispatchers.IO) {
                     request(index)
                 }
             }
-            val array = deffer.map {
+            val array = deffer.mapIndexed { index, deferred ->
                 var temp: String?
-                it.await().apply {
-                    temp = this ?: ""
+                deferred.await().apply {
+                    temp = this
                 }
+                println(index)
                 temp
             }
             images.clear()
             images.addAll(array)
         }
-
         images.forEach {
             println(it)
         }
@@ -83,5 +83,5 @@ class CoroutineLearning {
 }
 
 fun main() {
-    CoroutineLearning().doCallbackTask()
+    CoroutineLearning().doCoroutineTask()
 }
