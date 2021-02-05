@@ -8,7 +8,7 @@ import kotlin.concurrent.thread
 class CoroutineLearning {
     private fun request(index: Int): String {
         Thread.sleep(2000)
-        countDownLatch.countDown()
+//        countDownLatch.countDown()
         return "thread $index:"+ currentThread().name
     }
 

@@ -33,6 +33,13 @@ class HandlerActivity : AppCompatActivity() {
 
     private var sHandler = SHandler()
 
+    class KHandler: Handler() {
+        override fun handleMessage(msg: Message) {
+            super.handleMessage(msg)
+        }
+    }
+
+
     /* 该处理程序类应为静态，否则可能发生泄漏 */
     @SuppressLint("HandlerLeak")
     inner class SHandler: Handler() {
@@ -59,6 +66,8 @@ class HandlerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_handler)
+
+        var kHandler = KHandler()
 //        handler = Handler { message ->
 //            when(message.what) {
 //                ReceiverMessage -> {

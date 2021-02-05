@@ -1,78 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <LinearLayout
+    xmlns:tools="http://schemas.android.com/tools">
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
-
-        <TextView
-            android:id="@+id/textView"
+        android:layout_height="wrap_content">
+        <View
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="5dp"
-            android:background="#666666"
-            android:gravity="center"
-            android:text="Hello World!"
-            android:textColor="#FFFFFF"
-            android:textSize="22dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/button"
-            android:textColor="@color/write"
-            android:background="@drawable/background_common_button"
-            android:layout_margin="5dp"
+            android:layout_height="50dp"
+            android:background="#FF5722"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed" />
+        <View
+            android:background="#4CAF50"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="HermesEventBus测试" />
-
-        <Button
-            android:id="@+id/syncBtn"
-            android:textColor="@color/write"
-            android:background="@drawable/background_common_button"
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="synchronized测试" />
-
-        <Button
-            android:id="@+id/handlerBtn"
-            android:textColor="@color/write"
-            android:background="@drawable/background_common_button"
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Handler测试" />
-
-        <Button
-            android:id="@+id/binderTestBtn"
-            android:textColor="@color/write"
-            android:background="@drawable/background_common_button"
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Binder通讯" />
-
-        <Button
-            android:id="@+id/recyclerViewBtn"
-            android:textColor="@color/write"
-            android:background="@drawable/background_common_button"
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="List RecyclerView" />
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="50dp"/>
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
