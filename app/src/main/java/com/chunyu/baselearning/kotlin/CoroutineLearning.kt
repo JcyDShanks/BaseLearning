@@ -12,6 +12,20 @@ class CoroutineLearning {
         return "thread $index:"+ currentThread().name
     }
 
+    private fun requestKotlin(index: String?): String? {
+        Thread.sleep(2000)
+        if (index == null) return null
+        return "kotlin: $index"
+    }
+
+    private suspend fun requestCommon(index: String?): String? {
+        delay(2000)
+        if (index == null) {
+            return null
+        }
+        return "Common: $index"
+    }
+
     private var images = arrayListOf<String?>("1", "2", "3", "4", "5")
 
     private val countDownLatch = CountDownLatch(images.size)
@@ -33,24 +47,33 @@ class CoroutineLearning {
     // 使用协程执行
     fun doCoroutineTask() {
         runBlocking {
-            val deffer = images.mapIndexed { index, s ->
-                GlobalScope.async {
-                    request(index)
+            val deffer = images.mapIndexed { index, string ->
+                GlobalScope.async(Dispatchers.IO) {
+                    requestKotlin(string)
                 }
             }
             val array = deffer.map {
-                var temp: String?
-                it.await().apply {
-                    temp = this ?: ""
-                }
-                temp
+                it.await()
             }
-            images.clear()
-            images.addAll(array)
-        }
 
+            array.forEach {
+                println("array: $it")
+            }
+
+            val tasks = array.map {
+               GlobalScope.async(Dispatchers.IO) {
+                   requestCommon(it)
+               }
+            }
+
+            val result = tasks.map { it.await() }
+
+            result.forEach {
+                println("result: $it")
+            }
+        }
         images.forEach {
-            println(it)
+            println("images: $it")
         }
     }
 
@@ -59,7 +82,6 @@ class CoroutineLearning {
         Thread.sleep(2000)
         callback?.invoke("thread $index:"+ currentThread().name)
     }
-
 
     fun doCallbackTask() {
         val executeResults = arrayListOf(false, false, false, false, false)
@@ -83,5 +105,5 @@ class CoroutineLearning {
 }
 
 fun main() {
-    CoroutineLearning().doCallbackTask()
+    CoroutineLearning().doCoroutineTask()
 }

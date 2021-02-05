@@ -1,14 +1,17 @@
 package com.chunyu.baselearning
 
 import android.app.Activity
+import android.app.ListActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
 import com.chunyu.baselearning.android.HandlerActivity
 import com.chunyu.baselearning.android.NextActivity
 import com.chunyu.baselearning.android.binder.MyClientActivity
+import com.chunyu.baselearning.android.recyclerview.RecyclerViewActivity
 import com.chunyu.baselearning.java.SynchronizedTestActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.greenrobot.eventbus.Subscribe
@@ -22,19 +25,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         HermesEventBus.getDefault().register(this)
         initAction()
-        var mainURl = Thread.currentThread().name
-        thread {
-            var url1 = "thread1"
-            Thread.sleep(2000)
-            mainURl = url1
-            Log.e("chunyu", mainURl)
-            Toast.makeText(this, "toast", Toast.LENGTH_SHORT).show()
-        }
-
-        thread {
-            var url2 = "thread2"
-            Thread.sleep(2000)
-        }
+//        var mainURl = Thread.currentThread().name
+//        thread {
+//            var url1 = "thread1"
+//            Thread.sleep(2000)
+//            mainURl = url1
+//            Log.e("chunyu", mainURl)
+//            Toast.makeText(this, "toast", Toast.LENGTH_SHORT).show()
+//        }
+//
+//        thread {
+//            var url2 = "thread2"
+//            Thread.sleep(2000)
+//        }
 
     }
 
@@ -57,6 +60,10 @@ class MainActivity : AppCompatActivity() {
         }
         binderTestBtn.setOnClickListener {
             val intent = Intent(this, MyClientActivity::class.java)
+            startActivity(intent)
+        }
+        recyclerViewBtn.setOnClickListener {
+            val intent = Intent(this, RecyclerViewActivity::class.java)
             startActivity(intent)
         }
     }
