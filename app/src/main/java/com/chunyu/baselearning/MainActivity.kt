@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.chunyu.baselearning.android.HandlerActivity
 import com.chunyu.baselearning.android.NextActivity
 import com.chunyu.baselearning.android.binder.MyClientActivity
+import com.chunyu.baselearning.android.uitools.StatusBarTools
 import com.chunyu.baselearning.java.SynchronizedTestActivity
 import com.chunyu.baselearning.models.BinderAction
 import com.chunyu.baselearning.models.HomeActionModel
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        StatusBarTools.setStatusBarLightMode(this)
         initAction()
         recyclerView.adapter = object : RecyclerView.Adapter<HomeViewHolder>() {
             override fun onCreateViewHolder(
