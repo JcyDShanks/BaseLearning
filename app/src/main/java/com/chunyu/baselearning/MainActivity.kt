@@ -2,27 +2,18 @@ package com.chunyu.baselearning
 
 import android.app.Activity
 import android.content.Intent
-import android.os.Binder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.chunyu.baselearning.android.HandlerActivity
-import com.chunyu.baselearning.android.NextActivity
 import com.chunyu.baselearning.android.binder.MyClientActivity
 import com.chunyu.baselearning.android.uitools.StatusBarTools
-import com.chunyu.baselearning.java.SynchronizedTestActivity
 import com.chunyu.baselearning.models.BinderAction
 import com.chunyu.baselearning.models.HomeActionModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_home_button.view.*
-import org.greenrobot.eventbus.Subscribe
-import xiaofei.library.hermeseventbus.HermesEventBus
-import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
 
