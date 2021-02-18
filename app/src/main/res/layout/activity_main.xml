@@ -6,18 +6,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <View
+
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#FF5722"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed" />
-        <View
-            android:background="#4CAF50"
+            android:layout_height="160dp"
+            android:background="@color/write"
+            android:scaleType="centerCrop"
+            android:src="@drawable/home_banner"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:contentDescription="@string/flag_home_banner" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"/>
+            android:layout_height="60dp"
+            android:minHeight="0dp"
+            app:layout_scrollFlags="snapMargins"
+            android:background="@color/write">
+
+        </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

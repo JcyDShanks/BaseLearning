@@ -9,11 +9,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chunyu.baselearning.android.binder.MyClientActivity
+import com.chunyu.baselearning.android.uitools.StatusBarTools
 import com.chunyu.baselearning.models.BinderAction
 import com.chunyu.baselearning.models.HomeActionModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_home_button.view.*
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        StatusBarTools.setStatusBarLightMode(this)
         initAction()
         recyclerView.adapter = object : RecyclerView.Adapter<HomeViewHolder>() {
             override fun onCreateViewHolder(

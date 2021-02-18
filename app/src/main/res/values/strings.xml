@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BaseLearning</string>
+    <string name="flag_home_banner">flag_home_banner</string>
 </resources>
