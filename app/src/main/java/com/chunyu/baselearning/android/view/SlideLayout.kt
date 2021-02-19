@@ -71,12 +71,20 @@ class SlideLayout @JvmOverloads constructor(
                 var distance = endX - startX
                 // 向左滑为负值，通过下面一行代码转换至滑至的x坐标
                 distance = scrollX - distance
-                distance = if (distance < 0) {
-                    0f
-                } else {
-                    menuWidth.toFloat()
+
+                distance = when {
+                    distance < 0 -> {
+                        0f
+                    }
+                    distance > menuWidth -> {
+                        menuWidth.toFloat()
+                    }
+                    else -> {
+                        distance
+                    }
                 }
-                scrollTo(distance.toInt(), 0)
+
+                scrollTo(distance.toInt(), scrollY)
 
                 // 更新开始x坐标
                 startX = event.x
@@ -131,7 +139,7 @@ class SlideLayout @JvmOverloads constructor(
         }
     }
 
-    fun closeMenu() {
+    private fun closeMenu() {
         val distance = 0 - scrollX
         scroller.startScroll(scrollX, scrollY, distance, 0)
         invalidate()
