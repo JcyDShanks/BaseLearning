@@ -12,3 +12,6 @@ data class HomeActionModel(
 sealed class HomeAction
 
 object BinderAction: HomeAction()
+object LaunchModeAction: HomeAction()
+object ActivityCallbackAction: HomeAction()
+object LiveDataAction: HomeAction()

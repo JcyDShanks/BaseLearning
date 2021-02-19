@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.os.IBinder
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.chunyu.baselearning.MainActivity
 import com.chunyu.baselearning.R
 import kotlinx.android.synthetic.main.activity_my_client.*
 
@@ -41,6 +42,9 @@ class MyClientActivity : AppCompatActivity() {
         }
         stopPlayBtn.setOnClickListener {
             serviceStopPlay()
+        }
+        launchModeBtn.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
         startPlayBtn.isEnabled = false
         stopPlayBtn.isEnabled = false

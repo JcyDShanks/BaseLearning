@@ -19,7 +19,4 @@ class ReflectActivity : AppCompatActivity() {
             ProxyHandler(MyProxyListener())
         ) as OnClickListener
     }
-
-
-
 }

@@ -4,11 +4,14 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chunyu.baselearning.android.binder.MyClientActivity
+import com.chunyu.baselearning.android.launchMode.ALaunchActivity
 import com.chunyu.baselearning.android.uitools.StatusBarTools
 import com.chunyu.baselearning.models.BinderAction
 import com.chunyu.baselearning.models.HomeActionModel
@@ -47,8 +50,8 @@ class MainActivity : AppCompatActivity() {
 
             override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
                 val itemView = holder.view
-                itemView.button.text = actionList[position].desc
-                itemView.button.setOnClickListener(actionList[position].listener)
+                itemView.contentLayout.text = actionList[position].desc
+                itemView.contentLayout.setOnClickListener(actionList[position].listener)
             }
 
             override fun getItemCount(): Int {
@@ -58,22 +61,53 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this).apply {
             orientation = LinearLayoutManager.VERTICAL
         }
+        val decoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            getDrawable(R.drawable.divider_home)?.let { decoration.setDrawable(it) }
+        }
+        recyclerView.addItemDecoration(decoration)
         recyclerView.adapter?.notifyDataSetChanged()
+        Log.e("chunyu Main", "onCreate")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.e("chunyu Main", "onRestart")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.e("chunyu Main", "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.e("chunyu Main", "onResume")
+    }
+
+    override fun onPostResume() {
+        super.onPostResume()
+        Log.e("chunyu Main", "onPostResume")
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        Log.e("chunyu Main", "onNewIntent")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.e("chunyu Main", "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.e("chunyu Main", "onStop")
     }
 
     private fun initAction() {
         actionList = arrayListOf()
-        actionList.add(HomeActionModel(BinderAction, "Binder通信", View.OnClickListener {
-            val intent = Intent(this@MainActivity, MyClientActivity::class.java)
-            startActivity(intent)
-        }))
-
-        for (i in 0..100) {
-            actionList.add(HomeActionModel(BinderAction, "Binder通信", View.OnClickListener {
-                val intent = Intent(this@MainActivity, MyClientActivity::class.java)
-                startActivity(intent)
-            }))
-        }
+        actionList.addAll(PageRouter.router(this))
     }
 }
 

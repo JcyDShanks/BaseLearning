@@ -16,7 +16,7 @@
             android:layout_height="160dp"
             android:background="@color/write"
             android:scaleType="centerCrop"
-            android:src="@drawable/home_banner"
+            android:src="@color/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             android:contentDescription="@string/flag_home_banner" />
 
