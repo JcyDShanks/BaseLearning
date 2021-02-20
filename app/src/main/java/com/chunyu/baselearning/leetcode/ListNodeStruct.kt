@@ -1,6 +1,6 @@
 package com.chunyu.baselearning.leetcode
 
-class ListNode(var `val`: Int) {
+class ListNode(var value: Int) {
     var next: ListNode? = null
 }
 
@@ -12,7 +12,7 @@ fun main() {
     val res = ReverseList().merge(node2, node1)
     var current: ListNode? = res
     while (current != null) {
-        print(current.`val`)
+        print(current.value)
         current = current.next
     }
 }
@@ -74,7 +74,7 @@ class ReverseList {
         var cur = head
 
         while (cur != null) {
-            if (cur.`val` == value) {
+            if (cur.value == value) {
                 prev?.next = cur.next
             } else {
                 prev = cur
@@ -107,7 +107,7 @@ class ReverseList {
             // 如果第二个列表小, temp = min
             if (node2 != null) {
                 if (node1 != null) {
-                    if (node2.`val` < node1.`val`) {
+                    if (node2.value < node1.value) {
                         current = node2
                         isUseSec = true
                     } else {

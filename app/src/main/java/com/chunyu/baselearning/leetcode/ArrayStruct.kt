@@ -1,6 +1,6 @@
 package com.chunyu.baselearning.leetcode
 
-// 27
+// leetcode 27
 class RemoveObject {
 
     fun removeElement(nums: IntArray, value: Int): Int {
@@ -22,7 +22,7 @@ class RemoveObject {
 }
 
 
-// 283
+// leetcode 283
 class MoveZeroes {
     fun moveZeroes(nums: IntArray): Unit {
         var index = 0
@@ -39,7 +39,7 @@ class MoveZeroes {
     }
 }
 
-// 485
+// leetcode 485
 class FindMaxConsecutiveOnes {
     fun findMaxConsecutiveOnes(nums: IntArray): Int {
         var max = 0
