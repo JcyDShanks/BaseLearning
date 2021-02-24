@@ -4,7 +4,7 @@ import java.util.*
 
 //933
 
-class RecentCounter() {
+class RecentCounter {
 
     var queue: Queue<Int> = LinkedList<Int>()
 
