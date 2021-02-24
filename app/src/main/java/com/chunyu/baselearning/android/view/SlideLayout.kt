@@ -153,7 +153,7 @@ class SlideLayout @JvmOverloads constructor(
         }
     }
 
-    fun openMenu() {
+    private fun openMenu() {
         val distance = menuWidth - scrollX // 剩余未滑动距离
         scroller.startScroll(scrollX, scrollY, distance, 0) // 滑动处理
         invalidate() // 重绘
