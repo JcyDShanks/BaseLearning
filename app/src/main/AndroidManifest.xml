@@ -14,20 +14,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/BaseTheme">
-        <activity android:name=".android.view.DialogActivity"></activity>
-        <activity android:name=".viewProblem.ConstraintActivity"></activity>
+        <activity android:name=".android.launchMode.CLaunchActivity"></activity>
+        <activity android:name=".android.view.DialogActivity" />
+        <activity android:name=".viewProblem.ConstraintActivity" />
         <activity android:name=".jetpack.LiveDataSecActivity" />
         <activity android:name=".jetpack.LiveDataActivity" />
         <activity android:name=".android.activityCallback.BCallbackActivity" />
         <activity android:name=".android.activityCallback.ACallbackActivity" />
         <activity
             android:name=".android.launchMode.BLaunchActivity"
-            android:launchMode="singleInstance"
-            android:process=":B" />
+            android:launchMode="singleInstance" />
         <activity
             android:name=".android.launchMode.ALaunchActivity"
-            android:launchMode="singleInstance"
-            android:process=":A" />
+            android:launchMode="singleInstance" />
         <activity android:name=".android.CoordinatorActivity" />
         <activity android:name=".reflect.ReflectActivity" />
         <activity android:name=".android.binder.MyClientActivity" />
