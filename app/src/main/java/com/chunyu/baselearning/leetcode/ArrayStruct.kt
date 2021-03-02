@@ -24,7 +24,7 @@ class RemoveObject {
 
 // leetcode 283
 class MoveZeroes {
-    fun moveZeroes(nums: IntArray): Unit {
+    fun moveZeroes(nums: IntArray) {
         var index = 0
 
         nums.forEachIndexed { i, value ->

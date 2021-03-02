@@ -32,29 +32,19 @@ class ReverseList {
 
     /* 反转链表 循环 */
     fun reverseList(head: ListNode?): ListNode? {
-        var prev = head
-        var current = head?.next
-
-        while (current != null) {
-            val next = current.next
-            prev?.next = current.next
-            current.next = prev
-            prev = current
-            current = next
+        var pre: ListNode? = null
+        var cur = head
+        while (cur != null) {
+            val next = cur.next
+            cur.next = pre
+            pre = cur
+            cur = next
         }
-        return prev
+        return pre
     }
 
     /* 反转链表 递归 */
     fun reverse(head: ListNode?): ListNode? {
-//        if (head?.next == null) {
-//            return head
-//        }
-//        val newNode = reverse(head.next)
-//        head.next?.next = head
-//        head.next = null
-//        return newNode
-
         return if (head?.next == null) {
             head
         } else {
