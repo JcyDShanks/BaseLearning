@@ -14,8 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/BaseTheme">
-        <activity android:name=".viewProblem.ConstraintActivity">
-        </activity>
+        <activity android:name=".android.view.DialogActivity"></activity>
+        <activity android:name=".viewProblem.ConstraintActivity"></activity>
         <activity android:name=".jetpack.LiveDataSecActivity" />
         <activity android:name=".jetpack.LiveDataActivity" />
         <activity android:name=".android.activityCallback.BCallbackActivity" />

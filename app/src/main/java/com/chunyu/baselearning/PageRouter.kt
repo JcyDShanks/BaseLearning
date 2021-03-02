@@ -6,6 +6,7 @@ import android.view.View
 import com.chunyu.baselearning.android.activityCallback.ACallbackActivity
 import com.chunyu.baselearning.android.binder.MyClientActivity
 import com.chunyu.baselearning.android.launchMode.ALaunchActivity
+import com.chunyu.baselearning.android.view.DialogActivity
 import com.chunyu.baselearning.jetpack.LiveDataActivity
 import com.chunyu.baselearning.models.*
 
@@ -26,6 +27,10 @@ object PageRouter {
             }),
             HomeActionModel(ActivityCallbackAction, "Activity回调", View.OnClickListener {
                 val intent = Intent(context, ACallbackActivity::class.java)
+                context.startActivity(intent)
+            }),
+            HomeActionModel(DialogAction, "dialog Fragment测试", View.OnClickListener {
+                val intent = Intent(context, DialogActivity::class.java)
                 context.startActivity(intent)
             })
         )
