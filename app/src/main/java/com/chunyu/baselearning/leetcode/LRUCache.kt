@@ -10,6 +10,7 @@ class LRUCache(private val capacity: Int) {
         var next: DLinkedNode? = null
 
         constructor()
+
         constructor(_key: Int, _value: Int) {
             key = _key
             value = _value

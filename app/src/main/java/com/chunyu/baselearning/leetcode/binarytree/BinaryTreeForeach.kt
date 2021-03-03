@@ -1,6 +1,6 @@
 package com.chunyu.baselearning.leetcode.binarytree
 
-import android.R.attr.data
+import java.util.*
 
 
 class BinaryTreeForeach {
@@ -25,4 +25,41 @@ class BinaryTreeForeach {
         lastTraverse(root.right)
         print(root.value)
     }
+
+    /* 迭代实现前序遍历 */
+    fun preTraverseWithIteration(root: BinaryTree?) {
+        if(root == null) return
+
+        val stack = Stack<BinaryTree>()
+        stack.push(root)
+        while (!stack.isEmpty()) {
+            val node = stack.pop()
+            print(node.value)
+            if (node.left != null) {
+                stack.push(node.left)
+            }
+            if (node.right != null) {
+                stack.push(node.right)
+            }
+        }
+    }
+
+    /* 迭代实现中序遍历 */
+    fun midTraverseWithIteration(root: BinaryTree?): List<Int> {
+        var current = root
+        val res: ArrayList<Int> = ArrayList()
+        val linkedDeque = LinkedList<BinaryTree>()
+        while (current != null || !linkedDeque.isEmpty()) {
+            while (current != null) {
+                linkedDeque.push(current)
+                current = root?.left
+            }
+            val node = linkedDeque.pop()
+            res.add(node.value)
+            current = current?.right
+        }
+        return res.toList()
+    }
+
+    
 }
